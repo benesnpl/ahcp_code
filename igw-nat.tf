@@ -24,7 +24,7 @@ resource "aws_nat_gateway" "fw-nat" {
   subnet_id                             = aws_subnet.public_subnet[0].id
 
   tags = {
-    Name                                = "\NAT-GW"
+    Name                                = "NAT-GW"
   }
   depends_on                            = [aws_internet_gateway.main_igw]
 }

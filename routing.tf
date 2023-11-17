@@ -108,7 +108,7 @@ resource "aws_route_table" "private_vmx_rt" {
 
 resource "aws_route_table_association" "prvt" {
   depends_on                    = [aws_route_table.private_rt]
-  count                         = length(var.subnets_cidr_private)
+  count                         = length(var.private_cidr)
   subnet_id                     = element(aws_subnet.private_subnet.*.id,count.index)
   route_table_id                = aws_route_table.private_rt.id
 }
@@ -122,7 +122,7 @@ resource "aws_route_table_association" "prvt-vmx" {
 
 resource "aws_route_table_association" "public" {
   depends_on                    = [aws_route_table.public_rt]
-  count                         = length(var.subnets_cidr_public)
+  count                         = length(var.public_cidr)
   subnet_id                     = element(aws_subnet.public_subnet.*.id,count.index)
   route_table_id                = aws_route_table.public_rt.id
 }

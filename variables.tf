@@ -10,6 +10,14 @@ variable "coid" {
 	default                         = ""
 }
 
+variable "vpc_name_vmx" {
+	default                         = ""
+}
+
+variable "vpc_name" {
+	default                         = ""
+}
+
 
 ## Variables for VPC and Subnets
 
@@ -121,7 +129,7 @@ variable "rules_outbound_vmx_public_sg" {
 }
 
 
-variable "rules_inbound_private_vmx_sg" {
+variable "rules_inbound_vmx_private_sg" {
   default = [
     {
       port                          = 0
@@ -131,7 +139,7 @@ variable "rules_inbound_private_vmx_sg" {
     ]
 }
 
-variable "rules_outbound_private_vmx_sg" {
+variable "rules_outbound_vmx_private_sg" {
   default = [
     {
       port                          = 0

@@ -19,7 +19,7 @@ resource "aws_vpc" "meraki_vpc" {
 resource "aws_subnet" "public_subnet" {
     count                                   = length(var.public_cidr)
     cidr_block                              = element(var.public_cidr,count.index)
-    vpc_id                                  = aws_vpc.main_vpc
+    vpc_id                                  = aws_vpc.main_vpc.id
     availability_zone                       = element(var.azs,count.index)
     map_public_ip_on_launch                 = false
     tags = {
@@ -30,7 +30,7 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "public_subnet_vmx" {
     count                                   = length(var.public_cidr_vmx)
     cidr_block                              = element(var.public_cidr_vmx,count.index)
-    vpc_id                                  = aws_vpc.meraki_vpc
+    vpc_id                                  = aws_vpc.meraki_vpc.id
     availability_zone                       = var.az
     map_public_ip_on_launch                 = false
     tags = {
@@ -44,7 +44,7 @@ resource "aws_subnet" "public_subnet_vmx" {
 resource "aws_subnet" "private_subnet" {
     count                                   = length(var.private_cidr)
     cidr_block                              = element(var.private_cidr,count.index)
-    vpc_id                                  = aws_vpc.main_vpc
+    vpc_id                                  = aws_vpc.main_vpc.id
     availability_zone                       = element(var.azs,count.index)
     map_public_ip_on_launch                 = false
     tags = {
@@ -56,7 +56,7 @@ resource "aws_subnet" "private_subnet" {
 resource "aws_subnet" "private_subnet_vmx" {
     count                                   = length(var.private_cidr_vmx)
     cidr_block                              = element(var.private_cidr_vmx,count.index)
-    vpc_id                                  = aws_vpc.meraki_vpc
+    vpc_id                                  = aws_vpc.meraki_vpc.id
     availability_zone                       = var.az
     map_public_ip_on_launch                 = false
     tags = {

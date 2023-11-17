@@ -9,7 +9,7 @@ resource "aws_internet_gateway" "main_igw" {
   }
 }
 
-resource "aws_internet_gateway" "main_igw_vmx" {
+resource "aws_internet_gateway" "meraki_igw" {
   depends_on                            = [aws_ec2_transit_gateway.main_tgw,aws_internet_gateway.main_igw]
   vpc_id                                = aws_vpc.meraki_vpc.id
   tags = {

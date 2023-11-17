@@ -50,11 +50,11 @@ variable "private_cidr" {
 }
 
 variable "public_cidr_vmx" {
-	default                         = ["192.168.0.0/26"]
+	default                         = "192.168.0.0/26"
 }
 
 variable "private_cidr_vmx" {
-	default                         = ["192.168.0.128/26"]
+	default                         = "192.168.0.128/26"
 }
 
 

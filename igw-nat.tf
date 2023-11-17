@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "meraki_igw" {
 
 ## Create NAT Gateways on Both VPCs
 
-resource "aws_nat_gateway" "fw-nat" {
+resource "aws_nat_gateway" "main-nat" {
   allocation_id                         = aws_eip.pub1.id
   subnet_id                             = aws_subnet.public_subnet[0].id
 
@@ -29,7 +29,7 @@ resource "aws_nat_gateway" "fw-nat" {
   depends_on                            = [aws_internet_gateway.main_igw]
 }
 
-resource "aws_nat_gateway" "shr-nat" {
+resource "aws_nat_gateway" "vmx-nat" {
   allocation_id                         = aws_eip.pub2.id
   subnet_id                             = aws_subnet.public_subnet_vmx[0].id
 

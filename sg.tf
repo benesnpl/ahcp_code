@@ -62,7 +62,7 @@ resource "aws_security_group" "private_sg" {
 
 ## SG_For_Meraki_VPC
 
-resource "aws_security_group" "public_sg" {
+resource "aws_security_group" "public_vmx_sg" {
   name                          = "public_VMx_sg"
   description                   = "public_VMx_sg"
   vpc_id                        = var.vpc_cidr_vmx.id

@@ -28,13 +28,12 @@ resource "aws_subnet" "public_subnet" {
        }
        
 resource "aws_subnet" "public_subnet_vmx" {
-    count                                   = length(var.public_cidr_vmx)
-    cidr_block                              = element(var.public_cidr_vmx,count.index)
+    cidr_block                              = var.public_cidr_vmx
     vpc_id                                  = aws_vpc.meraki_vpc.id
     availability_zone                       = var.az
     map_public_ip_on_launch                 = false
     tags = {
-        Name = ("Public-Subnet-VMx-AZ${count.index+1}")
+        Name = ("Public-Subnet-VMx")
         }
        }
 
@@ -54,12 +53,11 @@ resource "aws_subnet" "private_subnet" {
        
 
 resource "aws_subnet" "private_subnet_vmx" {
-    count                                   = length(var.private_cidr_vmx)
-    cidr_block                              = element(var.private_cidr_vmx,count.index)
+    cidr_block                              = var.private_cidr_vmx
     vpc_id                                  = aws_vpc.meraki_vpc.id
     availability_zone                       = var.az
     map_public_ip_on_launch                 = false
     tags = {
-        Name = ("Private-Subnet-VMx-AZ${count.index+1}")
+        Name = ("Private-Subnet-VMx")
         }
        }

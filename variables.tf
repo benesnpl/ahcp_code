@@ -50,13 +50,11 @@ variable "private_cidr" {
 }
 
 variable "public_cidr_vmx" {
-	type = list
-	default                         = ["192.168.0.0/26","192.168.0.64/26"]
+	default                         = ["192.168.0.0/26"]
 }
 
 variable "private_cidr_vmx" {
-	type = list
-	default                         = ["192.168.0.128/26","192.168.0.192/26"]
+	default                         = ["192.168.0.128/26"]
 }
 
 

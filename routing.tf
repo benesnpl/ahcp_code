@@ -114,7 +114,7 @@ resource "aws_route_table_association" "prvt" {
 }
 
 resource "aws_route_table_association" "prvt-vmx" {
-  depends_on                    = [aws_route_table.private_vmx_rt]
+  depends_on                    = [aws_route_table.private_vmx_rt,aws_ec2_transit_gateway_vpc_attachment.tgw-main-shr]
   subnet_id                     = aws_subnet.private_subnet_vmx.id
   route_table_id                = aws_route_table.private_vmx_rt.id
 }

@@ -65,7 +65,7 @@ resource "aws_security_group" "private_sg" {
 resource "aws_security_group" "public_vmx_sg" {
   name                          = "public_VMx_sg"
   description                   = "public_VMx_sg"
-  vpc_id                        = var.vpc_cidr_vmx.id
+  vpc_id                        = var.meraki_vpc.id
   
   dynamic "ingress" {
     for_each                    = var.rules_inbound_vmx_public_sg

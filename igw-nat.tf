@@ -31,7 +31,7 @@ resource "aws_nat_gateway" "main-nat" {
 
 resource "aws_nat_gateway" "vmx-nat" {
   allocation_id                         = aws_eip.pub2.id
-  subnet_id                             = aws_subnet.public_subnet_vmx[0].id
+  subnet_id                             = aws_subnet.public_subnet_vmx.id
 
   tags = {
     Name                                = "NAT-GW-VMx"

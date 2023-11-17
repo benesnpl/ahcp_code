@@ -1,21 +1,21 @@
 ## Adding Variables
 
 variable "aws_region" {
-	default                         = ""
+	default                         = "us-west-2"
 }
 
 
 
 variable "coid" {
-	default                         = ""
+	default                         = "TAKS"
 }
 
 variable "vpc_name_vmx" {
-	default                         = ""
+	default                         = "TAKS-VPC-VMX"
 }
 
 variable "vpc_name" {
-	default                         = ""
+	default                         = "TAKS-VPC"
 }
 
 
@@ -23,40 +23,40 @@ variable "vpc_name" {
 
 
 variable "vpc_cidr" {
-	default                         = ""
+	default                         = "10.0.0.0/23"
 }
 
 variable "az" {
-	default                         = ""
+	default                         = "us-west-2a"
 }
 
 variable "vpc_cidr_vmx" {
-	default                         = ""
+	default                         = "192.168.0.0/24"
 }
 
 variable "azs" {
 	type = list
-	default                         = [""]
+	default                         = ["us-west-2a","us-west-2b"]
 }
 
 variable "public_cidr" {
 	type = list
-	default                         = ["",""]
+	default                         = ["10.0.0.0/26","10.0.0.64/26"]
 }
 
 variable "private_cidr" {
 	type = list
-	default                         = ["",""]
+	default                         = ["10.0.0.128/26","10.0.0.192/26"]
 }
 
 variable "public_cidr_vmx" {
 	type = list
-	default                         = ["",""]
+	default                         = ["192.168.0.0/26","192.168.0.64/26"]
 }
 
 variable "private_cidr_vmx" {
 	type = list
-	default                         = ["",""]
+	default                         = ["192.168.0.128/26","192.168.0.192/26"]
 }
 
 
